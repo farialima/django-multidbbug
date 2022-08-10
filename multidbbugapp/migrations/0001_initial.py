@@ -1,8 +1,7 @@
 from django.db import migrations, models
 
 TRACKING_ID_BY_DB = {
-    "default": [],
-    "first": ["one", "two"],
+    "default": ["one", "two"],
     "other": ["two-duplicate"],
 }
 

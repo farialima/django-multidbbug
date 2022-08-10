@@ -44,5 +44,4 @@ class CustomDatabaseAdminSite(AdminSite):
 admin_urls = [
     path("admin-" + database + "/", CustomDatabaseAdminSite(database).urls)
     for database in settings.DATABASES
-    if database != "default"
 ]

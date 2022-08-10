@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'multidbbugsite.wsgi.application'
 
 # two databases in dev for testing
 DATABASE_DISPLAY_NAMES = {
-    "first": "First Database",
+    "default": "First Database",
     "other": "Another database",
 }
 
@@ -87,10 +87,6 @@ DATABASES = {
     }
     for db in DATABASE_DISPLAY_NAMES.keys()
 }
-
-# for django users, etc., use the first DB
-DATABASES["default"] = DATABASES["first"]
-
 
 
 # Password validation
