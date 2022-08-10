@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'multidbbugapp',
 ]
 
 MIDDLEWARE = [
@@ -73,12 +74,23 @@ WSGI_APPLICATION = 'multidbbugsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+# two databases in dev for testing
+DATABASE_DISPLAY_NAMES = {
+    "first": "First Database",
+    "other": "Another database",
 }
+
+DATABASES = {
+    db: {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / (db + ".sqlite3"),
+    }
+    for db in DATABASE_DISPLAY_NAMES.keys()
+}
+
+# for django users, etc., use the first DB
+DATABASES["default"] = DATABASES["first"]
+
 
 
 # Password validation
