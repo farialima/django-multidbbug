@@ -25,11 +25,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Parcel",
             fields=[
-                ("par_id", models.AutoField(primary_key=True, serialize=False)),
-                (
-                    "tracking_id",
-                    models.CharField(blank=True, max_length=40, null=True, unique=True),
-                ),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('tracking_id', models.CharField(blank=True, max_length=40, null=True, unique=True)),
             ],
             options={
                 "db_table": "parcel",
